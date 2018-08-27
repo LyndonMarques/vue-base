@@ -1,0 +1,216 @@
+// ======= //
+// GENERAL //
+// ======= //
+
+body, html {
+  min-height:100%; height: 100%; width:100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  font-size: $font;
+}
+
+body {
+  background: $body-bg;
+}
+
+
+// ========= //
+// TYPOGRAFY //
+// ========= //
+
+h1 {
+  font-family: $font-family-sans-serif;
+}
+
+h2 {
+  font-family: $font-family-sans-serif;
+}
+
+h3 {
+  font-family: $font-family-sans-serif;
+}
+
+h4 {
+  font-family: $font-family-sans-serif;
+}
+
+h5 {
+  font-family: $font-family-sans-serif;
+}
+
+h6 {
+  font-family: $font-family-sans-serif;
+}
+
+a, p, span, strong, small {
+
+}
+
+a, p {
+  @extend %default-text;
+}
+
+strong {
+  font-weight: 700 !important;
+}
+
+small, .text-small {
+  font-size: $font1;
+}
+
+p, strong, span {
+  &.text-big {
+  }
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  @include list-unstyled;
+  li {
+    @extend %default-text;
+    display: inline-block;
+  }
+  &.list-featured {
+    li {
+      width: 100%;
+    }
+  }
+}
+
+blockquote {
+  &, p {
+  }
+}
+
+#{$all-buttons}, a.btn {
+  @extend %default-text;
+  display: inline-block;
+
+  &.btn-default {
+  }
+
+  &.btn-big {
+  }
+}
+
+#{$all-buttons-hover}, a.btn:hover {
+  text-decoration: none;
+}
+#{$all-buttons-active}, a.btn:active {
+
+}
+#{$all-buttons-focus}, a.btn:focus {
+
+}
+
+%form-input {
+  &::-webkit-input-placeholder {
+  }
+  &:-ms-input-placeholder {
+  }
+  &::-moz-placeholder {
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+#{$all-text-inputs} {
+  @extend %default-text;
+  box-sizing: border-box;
+  &.form-control {
+    @extend %form-input;
+  }
+}
+
+#{$all-text-inputs-focus} {
+  box-shadow: none;
+}
+
+#{$all-text-inputs-hover} {
+
+}
+
+#{$all-text-inputs-active} {
+}
+
+textarea {
+  &.form-control {
+    @extend %form-input;
+  }
+}
+
+select {
+  &.form-control {
+    @extend %form-input;
+    &:focus {
+    }
+  }
+}
+
+
+input[type="radio"] {
+  .form-check & {
+    + label {
+      &::before {
+      }
+    }
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  .form-check & {
+    + label {
+      &::before {
+      }
+    }
+    &:checked + label::before {
+    }
+  }
+
+  .form-check-small & {
+    + label {
+      &::before {
+      }
+    }
+  }
+}
+
+.form-group {
+  label {
+    @extend %default-text;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+// ======= //
+// HELPERS //
+// ======= //
+
+
+// ========== //
+// COMPONENTS //
+// ========== //
+
+.logo {
+  display: inline-block;
+}
+
+
+// ======= //
+// SECIONS //
+// ======= //
+
+// ===== //
+// PAGES //
+// ===== //
