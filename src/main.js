@@ -5,7 +5,20 @@ import App from './App'
 import router from './router'
 
 // import styles
-import './assets/sass/app.scss'
+import '@/assets/sass/app.scss'
+
+// import scripts
+import 'jquery'
+import 'bootstrap'
+
+
+import VueProgressBar from 'vue-progressbar'
+const progressBarOptions = {
+  color: '#007bff',
+  thickness: '4px'
+}
+
+Vue.use(VueProgressBar, progressBarOptions)
 
 Vue.config.productionTip = false
 
