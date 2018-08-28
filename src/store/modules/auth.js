@@ -34,7 +34,7 @@ const getters = {
 const actions = {
   async LOGIN({ commit, dispatch }, credentials) {
     commit('SET_MESSAGE', '');
-    const response = await api.post('sessions/login/', credentials);
+    const response = await api.post('api/login/', credentials);
     const { data, ok } = response;
 
     if (ok) {
@@ -47,13 +47,12 @@ const actions = {
   },
 
   async AUTHENTICATE({ commit, dispatch, state }) {
-    const response = await api.get('sessions/user/');
+    const response = await api.get('api/user/');
     const { data, ok } = response;
 
     if (ok) {
       commit('SET_LOGGED_IN', true);
       commit('user/SET_USER', data.user, { root: true });
-      commit('register/SET_USER', data.user, { root: true });
       commit('SET_ROLES', data.roles);
     } else {
       dispatch('REFRESH_TOKEN', state.token);
@@ -61,7 +60,7 @@ const actions = {
   },
 
   async REFRESH_TOKEN({ commit }, token) {
-    const response = await api.post('sessions/refresh/', { token });
+    const response = await api.post('api/refresh/', { token });
     const { data, ok } = response;
 
     if (ok) {
@@ -69,17 +68,14 @@ const actions = {
     } else {
       commit('SET_LOGGED_IN', false);
       commit('user/SET_USER', false, { root: true });
-      commit('register/SET_USER', false, { root: true });
       commit('CLEAR_ACCESS_TOKEN', false);
     }
   },
 
   async LOGOUT({ commit }) {
-    await api.post('sessions/logout/');
-
+    // await api.post('api/logout/');
     commit('SET_LOGGED_IN', false);
     commit('user/SET_USER', false, { root: true });
-    commit('register/SET_USER', false, { root: true });
     commit('SET_ROLES', false);
     commit('CLEAR_ACCESS_TOKEN', false);
   },

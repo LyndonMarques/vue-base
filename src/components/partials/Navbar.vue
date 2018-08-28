@@ -16,13 +16,18 @@
           <router-link class="nav-link" to="/contato">Contato</router-link>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="/">Sair</a>
+          <a href="#" class="nav-link" @click="logoutUser">
+            Sair
+          </a>
         </li>
       </ul>
     </div>
   </nav>
 </template>
 <script>
+  import { mapGetters, mapActions } from "vuex"
+  import { routes } from "@/router"
+
   export default {
     name: 'Navbar',
     components: {},
@@ -30,9 +35,26 @@
       return {
       }
     },
+
     mounted () {
     },
+
     methods: {
+      ...mapActions({
+        logout: "auth/LOGOUT"
+      }),
+
+      async logoutUser() {
+        await this.logout();
+        this.$router.push("/");
+      }
+    },
+
+    computed: {
+      ...mapGetters({
+        loggedin: "auth/LOGGED_IN",
+        currentUser: "user/GET_USER"
+      })
     }
   }
 </script>

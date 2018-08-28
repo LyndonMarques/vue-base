@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from '@/store'
 
 // import styles
 import '@/assets/sass/app.scss'
@@ -23,9 +24,10 @@ Vue.use(VueProgressBar, progressBarOptions)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+export default new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

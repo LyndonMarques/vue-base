@@ -23,12 +23,12 @@ const router = new Router({
       path: '/',
       name: 'Login',
       component: Login,
-      // beforeEnter: RedirectIfLoggedIn
+      beforeEnter: RedirectIfLoggedIn
     },
     {
       path: '/servicos/',
       component: ServicesIndex,
-      // beforeEnter: IsLoggedIn,
+      beforeEnter: IsLoggedIn,
       children: [
         {
           path: '',
@@ -43,14 +43,19 @@ const router = new Router({
     {
       path: '/relatorios/',
       component: Report,
-      // beforeEnter: IsLoggedIn,
+      beforeEnter: IsLoggedIn,
     },
     {
       path: '/contato/',
       component: Contact,
-      // beforeEnter: IsLoggedIn,
+      beforeEnter: IsLoggedIn,
     }
   ]
+})
+
+import Toasted from 'vue-toasted'
+Vue.use(Toasted, {
+  router
 })
 
 router.beforeEach(AppInit)
