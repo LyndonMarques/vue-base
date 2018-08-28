@@ -1,8 +1,22 @@
 <template>
   <div id="app">
     <vue-progress-bar/>
-    <navbar/>
+
+    <navbar v-if="$route.name != 'Login'"></navbar>
+
     <router-view/>
+
+    <footer class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="mb-0">
+              @2018 <strong>Grupo PWR</strong> Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -26,12 +40,15 @@
 </script>
 
 <style>
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.5s ease;
+  #app {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 58px;
   }
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
 </style>

@@ -5,8 +5,12 @@ import IsLoggedIn from './guards/IsLoggedIn'
 import RedirectIfLoggedIn from './guards/RedirectIfLoggedIn'
 
 import Login from '@/components/Login'
-import Services from '@/components/Services'
-import Sponsorship from '@/components/Sponsorship'
+
+import ServicesIndex from '@/components/services/Index'
+import ServicesList from '@/components/services/List'
+import ServicesSponsorship from '@/components/services/Sponsorship'
+
+import Report from '@/components/Report'
 import Contact from '@/components/Contact'
 
 
@@ -23,14 +27,23 @@ const router = new Router({
     },
     {
       path: '/servicos/',
-      component: Services,
+      component: ServicesIndex,
       // beforeEnter: IsLoggedIn,
       children: [
         {
+          path: '',
+          component: ServicesList
+        },
+        {
           path: 'patrocinio',
-          component: Sponsorship
+          component: ServicesSponsorship
         },
       ]
+    },
+    {
+      path: '/relatorios/',
+      component: Report,
+      // beforeEnter: IsLoggedIn,
     },
     {
       path: '/contato/',

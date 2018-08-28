@@ -12,12 +12,12 @@ import 'jquery'
 import 'bootstrap'
 
 
+// Vue Progress Bar
 import VueProgressBar from 'vue-progressbar'
 const progressBarOptions = {
   color: '#007bff',
   thickness: '4px'
 }
-
 Vue.use(VueProgressBar, progressBarOptions)
 
 Vue.config.productionTip = false

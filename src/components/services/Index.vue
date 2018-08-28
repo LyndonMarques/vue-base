@@ -1,8 +1,9 @@
 <template>
+  <router-view/>
 </template>
 <script>
   export default {
-    name: 'Sponsorship',
+    name: 'ServicesIndex',
     components: {},
     data () {
       return {
