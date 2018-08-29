@@ -185,7 +185,7 @@
 
             <div class="row mb-3">
               <div class="col-12 col-md-4 offset-md-4">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" @click.prevent="sendQuotation()">
                   Enviar Orçamento
                 </button>
               </div>
@@ -197,6 +197,8 @@
   </div>
 </template>
 <script>
+  import { mapGetters, mapActions } from "vuex"
+
   export default {
     name: 'ServicesSponsorship',
     components: {},
@@ -204,39 +206,67 @@
       return {
         sponsorship: {
           event: {
-            name: '',
-            type: '',
-            departure_date: '',
-            return_date: '',
-            requester: '',
-            gd: '',
-            product: '',
-            guest_segmentation: ''
+            name: 'Teste',
+            type: 'teste',
+            departure_date: '30/08/2018',
+            return_date: '03/09/2018',
+            requester: 'Lorem ipsum',
+            gd: 'GD',
+            product: 'Produto 1',
+            guest_segmentation: 'Segmento 1'
           },
           guest: {
-            name: '',
-            crm: '',
-            cpf: '',
-            rg: '',
-            birthdate: '',
-            nametag: '',
-            partner_number: '',
-            cellphone: '',
-            phone: '',
-            email: '',
-            address: ''
+            name: 'Fulano de tal',
+            crm: '000000',
+            cpf: '000.000.000.00',
+            rg: '00.000.000-00',
+            birthdate: '18/02/1992',
+            nametag: 'Sr. Fulano',
+            partner_number: '(11) 0000-0000',
+            cellphone: '(11) 00000-0000',
+            phone: '(11) 0000-0000',
+            email: 'fulano@teste.com',
+            address: 'Rua Tal número 6'
           },
           quoted_items: {
-            registration: false,
-            accommodation: false,
-            airfare: false
+            registration: true,
+            accommodation: true,
+            airfare: true
           }
         }
       }
     },
+
     mounted () {
+      this.sponsorship.id = this.currentUser.id
     },
+
     methods: {
+      ...mapActions({
+        createQuotation: "quotation/CREATE_QUOTATION"
+      }),
+
+      async sendQuotation() {
+        const { data, ok } = await this.createQuotation(this.sponsorship);
+        if (ok) {
+          this.$router.push("/servicos/");
+          this.$toasted.success('Orçamento enviado com sucesso', {
+            duration: 2000,
+            position: 'bottom-right'
+          })
+        } else {
+          this.$toasted.error('Ocorreu um erro', {
+            duration: 2000,
+            position: 'bottom-right'
+          })
+        }
+      },
+    },
+
+    computed: {
+      ...mapGetters({
+        currentUser: "user/GET_USER"
+      })
     }
   }
 </script>

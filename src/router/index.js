@@ -50,7 +50,8 @@ const router = new Router({
       component: Contact,
       beforeEnter: IsLoggedIn,
     }
-  ]
+  ],
+  linkActiveClass: "active"
 })
 
 import Toasted from 'vue-toasted'
