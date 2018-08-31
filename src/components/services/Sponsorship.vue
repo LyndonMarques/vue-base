@@ -97,6 +97,13 @@
 
               <div class="col-12 col-md-6">
                 <div class="form-group">
+                  <label for="guest[cpf]">CPF</label>
+                  <input type="text" class="form-control" name="guest[cpf]" v-model="sponsorship.guest.rg" placeholder="CPF do Convidado">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-group">
                   <label for="guest[rg]">RG</label>
                   <input type="text" class="form-control" name="guest[rg]" v-model="sponsorship.guest.rg" placeholder="RG do Convidado">
                 </div>
