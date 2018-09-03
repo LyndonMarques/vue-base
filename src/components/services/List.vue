@@ -11,7 +11,7 @@
       </div>
 
       <div class="row">
-        <div class="col-4 my-4">
+        <div class="col-12 col-md-4 my-4">
           <div class="card shadow-none">
             <div class="card-body text-center">
               <i class="fa fa-gift fa-4x mb-4" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <div class="col-4 my-4">
+        <div class="col-12 col-md-4 my-4">
           <div class="card shadow-none">
             <div class="card-body text-center">
               <i class="fa fa-handshake-o fa-4x mb-4 text-muted" aria-hidden="true"></i>
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="col-4 my-4">
+        <div class="col-12 col-md-4 my-4">
           <div class="card shadow-none">
             <div class="card-body text-center">
               <i class="fa fa-graduation-cap fa-4x mb-4 text-muted" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div class="col-4 my-4">
+        <div class="col-12 col-md-4 my-4">
           <div class="card shadow-none">
             <div class="card-body text-center">
               <i class="fa fa-stethoscope fa-4x mb-4 text-muted" aria-hidden="true"></i>
@@ -59,7 +59,7 @@
           </div>
         </div>
 
-        <div class="col-4 my-4">
+        <div class="col-12 col-md-4 my-4">
           <div class="card shadow-none">
             <div class="card-body text-center">
               <i class="fa fa-comments-o fa-4x mb-4 text-muted" aria-hidden="true"></i>
@@ -71,7 +71,7 @@
           </div>
         </div>
 
-        <div class="col-4 my-4">
+        <div class="col-12 col-md-4 my-4">
           <div class="card shadow-none">
             <div class="card-body text-center">
               <i class="fa fa-plane fa-4x mb-4 text-muted" aria-hidden="true"></i>
