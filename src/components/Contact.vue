@@ -17,13 +17,9 @@
               <div class="col-12 col-md-6">
                 <div class="form-group">
                   <label for="contact[name]">Categoria</label>
-                  <select v-model="contact.category" class="custom-select" placeholder="Selecionar">
-                    <option value="sponsorship">Patrocínio</option>
-                    <option value="event">Congressos/Eventos</option>
-                    <option value="training">Treinamentos</option>
-                    <option value="symposium">Simpósios</option>
-                    <option value="mini_meeting">Mini Meetings</option>
-                    <option value="visits">Visitas</option>
+                  <select v-model="contact.category" class="custom-select" placeholder="Selecione uma categoria">
+                    <option value="">Selecione</option>
+                    <option v-for="category in this.categories" :value="category.id">{{ category.name }}</option>
                   </select>
                 </div>
               </div>
@@ -45,6 +41,14 @@
                   <textarea v-model="contact.message" rows="5" class="form-control" name="contact[message]" placeholder="Conteúdo da mensagem" />
                 </div>
               </div>
+
+              <div class="w-100"></div>
+
+              <div class="col-12 col-md-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" @click.prevent="sendContact()">
+                  Enviar Mensagem
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -53,21 +57,54 @@
   </div>
 </template>
 <script>
+  import { mapGetters, mapActions } from "vuex"
+
   export default {
     name: 'Contact',
     components: {},
     data () {
       return {
         contact: {
-          category: "",
-          subject: "",
-          message: ""
+          category: '',
+          subject: '',
+          message: ''
         }
       }
     },
-    mounted () {
+
+    async mounted () {
+      this.contact.id = this.currentUser.id
+      await this.fetchCategories()
     },
+
     methods: {
+      ...mapActions({
+        createContact: "contact/CREATE_CONTACT",
+        fetchCategories: "category/FETCH_ALL_CATEGORIES"
+      }),
+
+      async sendContact() {
+        const { data, ok } = await this.createContact(this.contact);
+        if (ok) {
+          this.$router.push("/");
+          this.$toasted.success('Mensagem enviada com sucesso', {
+            duration: 2000,
+            position: 'bottom-right'
+          })
+        } else {
+          this.$toasted.error('Ocorreu um erro', {
+            duration: 2000,
+            position: 'bottom-right'
+          })
+        }
+      },
+    },
+
+    computed: {
+      ...mapGetters({
+        currentUser: "user/GET_USER",
+        categories: "category/GET_ALL"
+      })
     }
   }
 </script>

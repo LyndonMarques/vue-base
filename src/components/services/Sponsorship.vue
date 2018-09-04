@@ -132,6 +132,27 @@
 
               <div class="col-12 col-md-6">
                 <div class="form-group">
+                  <label for="guest[expertise]">Especialidade</label>
+                  <input type="text" class="form-control" name="guest[expertise]" v-model="sponsorship.guest.expertise" placeholder="Especialidade do médico">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label for="guest[institution]">Instituição</label>
+                  <input type="text" class="form-control" name="guest[institution]" v-model="sponsorship.guest.institution" placeholder="Instituição do médico">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label for="guest[partner_number]">Sociedade</label>
+                  <input type="text" class="form-control" name="guest[partner_number]" v-model="sponsorship.guest.partner_number" placeholder="Sociedade e nro. do Sócio">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-group">
                   <label for="guest[cellphone]">Telefone Celular</label>
                   <input type="text" class="form-control" name="guest[cellphone]" v-model="sponsorship.guest.cellphone" placeholder="Telefone Celular do Convidado">
                 </div>
@@ -213,32 +234,35 @@
       return {
         sponsorship: {
           event: {
-            name: 'Teste',
-            type: 'teste',
-            departure_date: '30/08/2018',
-            return_date: '03/09/2018',
-            requester: 'Lorem ipsum',
-            gd: 'GD',
-            product: 'Produto 1',
-            guest_segmentation: 'Segmento 1'
+            name: '',
+            type: '',
+            departure_date: '',
+            return_date: '',
+            requester: '',
+            gd: '',
+            product: '',
+            guest_segmentation: ''
           },
           guest: {
-            name: 'Fulano de tal',
-            crm: '000000',
-            cpf: '000.000.000.00',
-            rg: '00.000.000-00',
-            birthdate: '18/02/1992',
-            nametag: 'Sr. Fulano',
-            partner_number: '(11) 0000-0000',
-            cellphone: '(11) 00000-0000',
-            phone: '(11) 0000-0000',
-            email: 'fulano@teste.com',
-            address: 'Rua Tal número 6'
+            name: '',
+            crm: '',
+            cpf: '',
+            rg: '',
+            passport: '',
+            birthdate: '',
+            nametag: '',
+            partner_number: '',
+            expertise: '',
+            institution: '',
+            cellphone: '',
+            phone: '',
+            email: '',
+            address: ''
           },
           quoted_items: {
-            registration: true,
-            accommodation: true,
-            airfare: true
+            registration: false,
+            accommodation: false,
+            airfare: false
           }
         }
       }
