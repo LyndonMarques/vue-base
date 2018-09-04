@@ -5,12 +5,12 @@ const INITIAL_STATE = {
   loggedin: false,
   message: '',
   token: false,
-  roles: false,
+  role: false,
 };
 
 const getters = {
-  GET_ROLES({ roles }) {
-    return roles
+  GET_ROLE({ role }) {
+    return role
   },
 
   LOGGED_IN({ loggedin }) {
@@ -29,6 +29,17 @@ const getters = {
     return state;
   },
 
+  IS_TRADE({ role }) {
+    return role == 'trade';
+  },
+
+  IS_FINANCIAL({ role }) {
+    return role == 'financial';
+  },
+
+  IS_ADMIN({ role }) {
+    return role == 'admin';
+  }
 };
 
 const actions = {
@@ -53,7 +64,7 @@ const actions = {
     if (ok) {
       commit('SET_LOGGED_IN', true);
       commit('user/SET_USER', data.user, { root: true });
-      commit('SET_ROLES', data.roles);
+      commit('SET_ROLE', data.role);
     } else {
       dispatch('REFRESH_TOKEN', state.token);
     }
@@ -76,14 +87,14 @@ const actions = {
     // await api.post('api/logout/');
     commit('SET_LOGGED_IN', false);
     commit('user/SET_USER', false, { root: true });
-    commit('SET_ROLES', false);
+    commit('SET_ROLE', false);
     commit('CLEAR_ACCESS_TOKEN', false);
   },
 };
 
 const mutations = {
-  SET_ROLES(state, roles) {
-    state.roles = roles;
+  SET_ROLE(state, role) {
+    state.role = role;
   },
 
   SET_ACCESS_TOKEN(state, token) {

@@ -49,7 +49,7 @@
       async loginUser(user) {
         const response = await this.login(user)
         if (this.loggedin) {
-          this.$router.push("/servicos/");
+          this.$router.push("/home/");
         } else {
           this.$toasted.show(response.data.error, {
             duration: 2000,
