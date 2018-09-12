@@ -12,6 +12,7 @@ import Home from '@/components/Home'
 import ServicesIndex from '@/components/services/Index'
 import ServicesList from '@/components/services/List'
 import ServicesSponsorship from '@/components/services/Sponsorship'
+import ServicesConference from '@/components/services/Conference'
 
 import Report from '@/components/Report'
 import Contact from '@/components/Contact'
@@ -48,6 +49,11 @@ const router = new Router({
         {
           path: 'patrocinio',
           component: ServicesSponsorship,
+          meta: { trade: true }
+        },
+        {
+          path: 'conferencia',
+          component: ServicesConference,
           meta: { trade: true }
         },
       ]

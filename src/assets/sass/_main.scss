@@ -206,6 +206,13 @@ input[type="radio"] {
   display: inline-block;
 }
 
+.card {
+  border: none;
+  border-radius: 10px;
+  .card-body {
+    padding: 30px 20px;
+  }
+}
 
 // ======= //
 // SECIONS //

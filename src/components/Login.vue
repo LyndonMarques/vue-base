@@ -2,9 +2,11 @@
   <div class="container">
     <div class="row align-items-center h-100">
       <div class="col-8 offset-2 col-md-6 offset-md-3">
-        <h2 class="text-center my-4">Zodiac</h2>
+        <div class="card shadow-none card-login">
+          <div class="card-header">
+            <img src="./assets/img/logo.png" alt="">
+          </div>
 
-        <div class="card shadow-none">
           <div class="card-body">
             <form  class="form">
               <div class="form-group">
