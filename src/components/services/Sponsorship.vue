@@ -4,9 +4,14 @@
       <div class="row">
         <div class="col-12 mb-4">
           <h1>
-            <i class="fa fa-gift fa-1x" aria-hidden="true"></i>
-            Patrocínio
+            <span>
+              Patrocínio
+            </span>
           </h1>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </div>
       </div>
 

@@ -1,16 +1,18 @@
 <template>
   <div class="wrapper">
-    <div class="container py-5">
-      <div class="row mb-3">
+    <div class="container">
+      <div class="row">
         <div class="col-12">
-          <h1>Contato</h1>
+          <h1>
+            <span>Contato</span>
+          </h1>
           <p>
             Utilize o formulário abaixo para entrar em contato com nossa equipe.
           </p>
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row">
         <div class="col-12">
           <form>
             <div class="row mb-3">

@@ -26,7 +26,8 @@ const router = new Router({
       path: '/',
       name: 'Login',
       component: Login,
-      beforeEnter: RedirectIfLoggedIn
+      beforeEnter: RedirectIfLoggedIn,
+      meta: { bodyClass: 'login' },
     },
     {
       path: '/home/',
@@ -71,6 +72,9 @@ import Toasted from 'vue-toasted'
 Vue.use(Toasted, {
   router
 })
+
+import vbclass from 'vue-body-class'
+Vue.use( vbclass, router )
 
 router.beforeEach(AppInit)
 
