@@ -58,7 +58,10 @@ const router = new Router({
         {
           path: 'conferencia',
           component: ServicesConference,
-          meta: { trade: true }
+          meta: {
+            trade: true,
+            bodyClass: 'service'
+          }
         },
       ]
     },

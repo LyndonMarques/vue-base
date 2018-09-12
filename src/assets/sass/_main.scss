@@ -211,6 +211,7 @@ input[type="radio"] {
 input[type="checkbox"],
 input[type="radio"] {
   .form-check & {
+    margin-top: 9px;
     + label {
       &::before {
       }
@@ -224,6 +225,10 @@ input[type="radio"] {
       &::before {
       }
     }
+  }
+
+  .form-check-inline & {
+    margin-top: 1px;
   }
 }
 
