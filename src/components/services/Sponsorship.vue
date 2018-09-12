@@ -1,12 +1,17 @@
 <template>
   <div class="wrapper">
-    <div class="container py-5">
+    <div class="container pb-5">
       <div class="row">
         <div class="col-12 mb-4">
           <h1>
-            <i class="fa fa-gift fa-1x" aria-hidden="true"></i>
-            Patrocínio
+            <span>
+              Patrocínio
+            </span>
           </h1>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </div>
       </div>
 
@@ -15,7 +20,7 @@
           <form>
             <div class="row mb-3">
               <div class="col-12 mb-2">
-                <h2>Dados do Evento</h2>
+                <h3>Dados do Evento</h3>
               </div>
 
               <div class="col-12 col-md-6">
@@ -78,7 +83,7 @@
 
             <div class="row mb-3">
               <div class="col-12 mb-2">
-                <h2>Dados do Convidado</h2>
+                <h3>Dados do Convidado</h3>
               </div>
 
               <div class="col-12 col-md-6">
@@ -182,7 +187,7 @@
 
             <div class="row mb-3">
               <div class="col-12 mb-2">
-                <h2>Patrocínio</h2>
+                <h3>Patrocínio</h3>
               </div>
 
               <div class="col-12">
@@ -212,8 +217,8 @@
             </div>
 
             <div class="row mb-3">
-              <div class="col-12 col-md-4 offset-md-4">
-                <button type="submit" class="btn btn-primary btn-lg btn-block" @click.prevent="sendQuotation()">
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg" @click.prevent="sendQuotation()">
                   Enviar Orçamento
                 </button>
               </div>

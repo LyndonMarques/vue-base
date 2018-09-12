@@ -1,23 +1,23 @@
 <template>
   <div class="wrapper">
-    <div class="container py-5">
-      <div class="row mb-3">
+    <div class="container">
+      <div class="row">
         <div class="col-12">
-          <h1>Contato</h1>
+          <h2>Contato</h2>
           <p>
             Utilize o formulário abaixo para entrar em contato com nossa equipe.
           </p>
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row">
         <div class="col-12">
           <form>
             <div class="row mb-3">
               <div class="col-12 col-md-6">
                 <div class="form-group">
                   <label for="contact[name]">Categoria</label>
-                  <select v-model="contact.category" class="custom-select" placeholder="Selecione uma categoria">
+                  <select v-model="contact.category" class="form-control" placeholder="Selecione uma categoria">
                     <option value="">Selecione</option>
                     <option v-for="category in this.categories" :value="category.id">{{ category.name }}</option>
                   </select>
@@ -44,9 +44,9 @@
 
               <div class="w-100"></div>
 
-              <div class="col-12 col-md-4">
-                <button type="submit" class="btn btn-primary btn-lg btn-block" @click.prevent="sendContact()">
-                  Enviar Mensagem
+              <div class="col-12 col-md-6 text-center">
+                <button type="submit" class="btn btn-primary btn-lg" @click.prevent="sendContact()">
+                  Enviar
                 </button>
               </div>
             </div>

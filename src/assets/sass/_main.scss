@@ -21,14 +21,39 @@ body {
 
 h1 {
   font-family: $font-family-sans-serif;
+  color: $black1;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  font-size: $font8;
+  &::before {
+    @extend %content;
+    @include vertical-centered;
+    background: $red1;
+    height: 3px;
+    margin-top: 2px;
+    z-index: 30;
+  }
+  span {
+    background: white;
+    display: inline-block;
+    padding: 0 20px;
+    position: relative;
+    z-index: 40;
+  }
 }
 
 h2 {
   font-family: $font-family-sans-serif;
+  color: $black1;
+  font-size: $font8;
+  font-weight: 700;
 }
 
 h3 {
   font-family: $font-family-sans-serif;
+  color: $black1;
+  font-size: $font7;
 }
 
 h4 {
@@ -37,6 +62,9 @@ h4 {
 
 h5 {
   font-family: $font-family-sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
 }
 
 h6 {
@@ -92,11 +120,25 @@ blockquote {
 #{$all-buttons}, a.btn {
   @extend %default-text;
   display: inline-block;
+  text-transform: uppercase;
 
-  &.btn-default {
+  &.btn-primary {
+    color: white;
+    background: $blue1;
+    border-radius: 40px;
+    padding: 10px 60px;
   }
 
-  &.btn-big {
+  &.btn-white {
+    color: $black1;
+    background: white;
+    border-radius: 40px;
+    padding: 8px 14px;
+    font-weight: 700;
+    font-size: $font2;
+  }
+
+  &.btn-lg {
   }
 }
 
@@ -111,6 +153,8 @@ blockquote {
 }
 
 %form-input {
+  border: none;
+  background: $gray1;
   &::-webkit-input-placeholder {
   }
   &:-ms-input-placeholder {
@@ -119,6 +163,7 @@ blockquote {
   }
   &:focus {
     box-shadow: none;
+    background: $gray1;
   }
 }
 
@@ -150,8 +195,6 @@ textarea {
 select {
   &.form-control {
     @extend %form-input;
-    &:focus {
-    }
   }
 }
 
@@ -193,6 +236,20 @@ input[type="radio"] {
   }
 }
 
+.input-group {
+  .input-group-text {
+    border: none;
+    border-radius: 10px 0 0 10px;
+    background: $red1;
+  }
+  .form-control {
+    border-radius: 0 10px 10px 0;
+  }
+  .btn-primary {
+    margin-top: 20px;
+  }
+}
+
 // ======= //
 // HELPERS //
 // ======= //
@@ -202,22 +259,157 @@ input[type="radio"] {
 // COMPONENTS //
 // ========== //
 
+.icon {
+  display: inline-block;
+
+  &.icon-user {
+    width: 21px;
+    height: 21px;
+    background: url('#{$img-path}icon-user.png') no-repeat center center;
+  }
+
+  &.icon-password {
+    width: 20px;
+    height: 26px;
+    background: url('#{$img-path}icon-password.png') no-repeat center center;
+  }
+
+  &.icon-sponsorship {
+    width: 28px;
+    height: 30px;
+    background: url('#{$img-path}icon-sponsorship.png') no-repeat center center;
+  }
+
+  &.icon-event {
+    width: 37px;
+    height: 24px;
+    background: url('#{$img-path}icon-event.png') no-repeat center center;
+  }
+
+  &.icon-logout {
+    width: 13px;
+    height: 13px;
+    background: url('#{$img-path}icon-logout.png') no-repeat center center;
+  }
+}
+
 .logo {
   display: inline-block;
 }
 
-.card {
+.card-login {
+  padding: 28px 20px;
   border: none;
   border-radius: 10px;
+  form {
+    margin-top: 45px;
+  }
+  label {
+    display: none;
+  }
   .card-body {
-    padding: 30px 20px;
+    padding: 0px;
   }
 }
 
+.card-service {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: .7;
+  transition: opacity .3s ease-in;
+  .card-body {
+    text-align: center;
+    position: relative;
+    background: $red1;
+    padding: 40px 30px;
+  }
+  .card-icon {
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -27px;
+    margin: auto;
+    border-radius: 50%;
+    background: $black1;
+    line-height: 72px;
+    text-align: center;
+  }
+
+  p {
+    color: white;
+    margin-bottom: 22px;
+  }
+
+  &.card-disable .card-body {
+    background: $black2;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.navbar {
+  background: white;
+  padding: 30px 0;
+}
+
+.nav-link {
+  @extend %default-text;
+  transition: all .3s ease-in;
+  padding: 4px 30px !important;
+  &:hover {
+    color: transparentize($black1, .3);
+  }
+  &.active {
+    background: $red1;
+    border-radius: 33px;
+    color: white;
+  }
+  i {
+    margin-right: 2px;
+  }
+}
+
+
+.footer {
+  background: $red1;
+  p {
+    color: white;
+  }
+  .login & {
+    background: transparent;
+    p {
+      color: $black1;
+    }
+  }
+}
 // ======= //
 // SECIONS //
 // ======= //
 
+.wrapper {
+  h1 + p {
+    margin-top: 13px;
+    margin-bottom: 30px;
+  }
+}
+
 // ===== //
 // PAGES //
 // ===== //
+
+#app {
+  background: url('#{$img-path}bg.png') no-repeat center center;
+  background-size: cover;
+  .login & {
+    background: url('#{$img-path}login.png') no-repeat center center;
+    background-size: cover;
+  }
+  .service & {
+    background: $body-bg;
+  }
+}

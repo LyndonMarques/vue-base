@@ -1,28 +1,39 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse">
-      <ul class="navbar-nav text-center">
-        <li class="nav-item px-3">
-          <router-link class="nav-link" to="/servicos">Serviços</router-link>
-        </li>
-        <li class="nav-item px-3">
-          <router-link class="nav-link" to="/relatorios">Relatorios</router-link>
-        </li>
-        <li class="nav-item px-3">
-          <router-link class="nav-link" to="/contato">Contato</router-link>
-        </li>
-        <li class="nav-item px-3">
-          <a href="#" class="nav-link" @click="logoutUser">
-            Sair
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-md sticky-top">
+          <a class="navbar-brand" href="#">
+            <img src="../../assets/img/logo-small.png" alt="Zodiac">
           </a>
-        </li>
-      </ul>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse">
+            <ul class="navbar-nav text-center">
+              <li v-if="role == 'trade' || role == 'admin'" class="nav-item px-3">
+                <router-link class="nav-link" to="/servicos">Serviços</router-link>
+              </li>
+              <li v-if="role == 'financial' || role == 'admin'" class="nav-item px-3">
+                <router-link class="nav-link" to="/relatorios">Relatorios</router-link>
+              </li>
+              <li class="nav-item px-3">
+                <router-link class="nav-link" to="/contato">Contato</router-link>
+              </li>
+              <li class="nav-item px-3">
+                <a href="#" class="nav-link" @click="logoutUser">
+                  <i class="icon icon-logout"></i>
+                  Sair
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
-  </nav>
+  </div>
 </template>
 <script>
   import { mapGetters, mapActions } from "vuex"
@@ -53,7 +64,8 @@
     computed: {
       ...mapGetters({
         loggedin: "auth/LOGGED_IN",
-        currentUser: "user/GET_USER"
+        currentUser: "user/GET_USER",
+        role: "auth/GET_ROLE"
       })
     }
   }
