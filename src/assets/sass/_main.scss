@@ -25,6 +25,7 @@ h1 {
   font-weight: 700;
   text-align: center;
   position: relative;
+  font-size: $font8;
   &::before {
     @extend %content;
     @include vertical-centered;
@@ -44,10 +45,15 @@ h1 {
 
 h2 {
   font-family: $font-family-sans-serif;
+  color: $black1;
+  font-size: $font8;
+  font-weight: 700;
 }
 
 h3 {
   font-family: $font-family-sans-serif;
+  color: $black1;
+  font-size: $font7;
 }
 
 h4 {
@@ -157,6 +163,7 @@ blockquote {
   }
   &:focus {
     box-shadow: none;
+    background: $gray1;
   }
 }
 
@@ -188,8 +195,6 @@ textarea {
 select {
   &.form-control {
     @extend %form-input;
-    &:focus {
-    }
   }
 }
 
@@ -280,6 +285,12 @@ input[type="radio"] {
     height: 24px;
     background: url('#{$img-path}icon-event.png') no-repeat center center;
   }
+
+  &.icon-logout {
+    width: 13px;
+    height: 13px;
+    background: url('#{$img-path}icon-logout.png') no-repeat center center;
+  }
 }
 
 .logo {
@@ -358,6 +369,9 @@ input[type="radio"] {
     border-radius: 33px;
     color: white;
   }
+  i {
+    margin-right: 2px;
+  }
 }
 
 
@@ -388,7 +402,14 @@ input[type="radio"] {
 // PAGES //
 // ===== //
 
-.login {
-  background: url('#{$img-path}login.png') no-repeat center center;
+#app {
+  background: url('#{$img-path}bg.png') no-repeat center center;
   background-size: cover;
+  .login & {
+    background: url('#{$img-path}login.png') no-repeat center center;
+    background-size: cover;
+  }
+  .service & {
+    background: $body-bg;
+  }
 }

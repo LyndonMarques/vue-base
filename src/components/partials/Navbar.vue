@@ -13,10 +13,10 @@
 
           <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse">
             <ul class="navbar-nav text-center">
-              <li class="nav-item px-3">
+              <li v-if="role == 'trade' || role == 'admin'" class="nav-item px-3">
                 <router-link class="nav-link" to="/servicos">Serviços</router-link>
               </li>
-              <li class="nav-item px-3">
+              <li v-if="role == 'financial' || role == 'admin'" class="nav-item px-3">
                 <router-link class="nav-link" to="/relatorios">Relatorios</router-link>
               </li>
               <li class="nav-item px-3">
@@ -24,6 +24,7 @@
               </li>
               <li class="nav-item px-3">
                 <a href="#" class="nav-link" @click="logoutUser">
+                  <i class="icon icon-logout"></i>
                   Sair
                 </a>
               </li>
@@ -63,7 +64,8 @@
     computed: {
       ...mapGetters({
         loggedin: "auth/LOGGED_IN",
-        currentUser: "user/GET_USER"
+        currentUser: "user/GET_USER",
+        role: "auth/GET_ROLE"
       })
     }
   }

@@ -49,7 +49,10 @@ const router = new Router({
         {
           path: 'patrocinio',
           component: ServicesSponsorship,
-          meta: { trade: true }
+          meta: {
+            trade: true,
+            bodyClass: 'service'
+          }
         },
       ]
     },
