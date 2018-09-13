@@ -23,6 +23,12 @@ Vue.use(VueProgressBar, progressBarOptions)
 
 Vue.config.productionTip = false
 
+import VeeValidate from 'vee-validate'
+Vue.use(VeeValidate, {
+  classes: true,
+})
+
+
 /* eslint-disable no-new */
 export default new Vue({
   el: '#app',
