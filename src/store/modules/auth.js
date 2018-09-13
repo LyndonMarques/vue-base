@@ -60,13 +60,14 @@ const actions = {
   async AUTHENTICATE({ commit, dispatch, state }) {
     const response = await api.get('api/user/');
     const { data, ok } = response;
-
     if (ok) {
-      commit('SET_LOGGED_IN', true);
-      commit('user/SET_USER', data.user, { root: true });
-      commit('SET_ROLE', data.role);
-    } else {
-      dispatch('REFRESH_TOKEN', state.token);
+      if (data.status == "Token is Expired") {
+        dispatch('LOGOUT');
+      } else {
+        commit('SET_LOGGED_IN', true);
+        commit('user/SET_USER', data.user, { root: true });
+        commit('SET_ROLE', data.role);
+      }
     }
   },
 
@@ -82,7 +83,8 @@ const actions = {
       commit('CLEAR_ACCESS_TOKEN', false);
     }
   },
-
+  
+  // FIXME: Redirect to login page after
   async LOGOUT({ commit }) {
     // await api.post('api/logout/');
     commit('SET_LOGGED_IN', false);

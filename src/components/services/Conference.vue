@@ -505,7 +505,7 @@
 
               <div class="col-12 col-md-6">
                 <div class="form-group">
-                  <label for="transfer[end_time]">Período</label>
+                  <label for="transfer[end_time]">Término do Evento</label>
                   <input type="text" class="form-control" name="transfer[end_time]" v-model="fields.transfer.end_time" placeholder="Horário de Término do Evento">
                 </div>
               </div>
@@ -630,6 +630,7 @@
     data () {
       return {
         fields: {
+          type: 'conference',
           client: {
             name: '',
             account_manager: '',
@@ -723,17 +724,13 @@
       }
     },
 
-    mounted () {
-      this.fields.id = this.currentUser.id
-    },
-
     methods: {
       ...mapActions({
         createQuotation: "quotation/CREATE_QUOTATION"
       }),
 
       async sendQuotation() {
-        const { data, ok } = await this.createQuotation(this.fields);
+        const { data, ok } = await this.createQuotation({id: this.currentUser.id, fields: this.fields});
         if (ok) {
           this.$router.push("/servicos/");
           this.$toasted.success('Orçamento enviado com sucesso', {
