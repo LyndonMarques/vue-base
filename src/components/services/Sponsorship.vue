@@ -24,6 +24,25 @@
               </div>
 
               <div class="col-12 col-md-6">
+                <p class="mb-2">Tipo de patrocínio:</p>
+                <div class="form-check form-check-inline">
+                  <input type="radio" v-model="fields.sponsorship_type" class="form-check-input" id="onco" value="onco">
+                  <label class="form-radio-label" for="onco">
+                    Onco
+                  </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input type="radio" v-model="fields.sponsorship_type" class="form-check-input" id="farma" value="farma">
+                  <label class="form-radio-label" for="farma">
+                    Farma
+                  </label>
+                </div>
+              </div>
+
+              <div class="w-100"></div>
+
+              <div class="col-12 col-md-6">
                 <div class="form-group">
                   <label for="event[name]">Evento/Congresso</label>
                   <input type="text" class="form-control" name="event[name]" v-model="fields.event.name" placeholder="Nome do Evento ou Congresso">
@@ -128,12 +147,23 @@
                 </div>
               </div>
 
-              <div class="col-12 col-md-6">
-                <div class="form-group">
-                  <label for="guest[partner_number]">Sociedade</label>
-                  <input type="text" class="form-control" name="guest[partner_number]" v-model="fields.guest.partner_number" placeholder="Sociedade e nro. do Sócio">
+              <template v-if="fields.sponsorship_type == 'onco'">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="guest[partner_number]">Instituição</label>
+                    <input type="text" class="form-control" name="guest[partner_number]" v-model="fields.guest.partner_number" placeholder="Instituição que o médico trabalha">
+                  </div>
                 </div>
-              </div>
+              </template>
+
+              <template v-if="fields.sponsorship_type == 'farma'">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="guest[partner_number]">Sociedade</label>
+                    <input type="text" class="form-control" name="guest[partner_number]" v-model="fields.guest.partner_number" placeholder="Sociedade e nro. do Sócio">
+                  </div>
+                </div>
+              </template>
 
               <div class="col-12 col-md-6">
                 <div class="form-group">
@@ -146,13 +176,6 @@
                 <div class="form-group">
                   <label for="guest[institution]">Instituição</label>
                   <input type="text" class="form-control" name="guest[institution]" v-model="fields.guest.institution" placeholder="Instituição do médico">
-                </div>
-              </div>
-
-              <div class="col-12 col-md-6">
-                <div class="form-group">
-                  <label for="guest[partner_number]">Sociedade</label>
-                  <input type="text" class="form-control" name="guest[partner_number]" v-model="fields.guest.partner_number" placeholder="Sociedade e nro. do Sócio">
                 </div>
               </div>
 
@@ -239,6 +262,7 @@
       return {
         fields: {
           type: 'sponsorship',
+          sponsorship_type: '',
           event: {
             name: '',
             type: '',
