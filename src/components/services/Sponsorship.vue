@@ -337,7 +337,7 @@
       },
 
       async sendQuotation() {
-        const { data, ok } = await this.createQuotation({id: this.currentUser.id, fields: this.fields});
+        const { data, ok } = await this.createQuotation({id: this.currentUser.id, fields: this.sponsorship_fields});
         if (ok) {
           this.$router.push("/servicos/");
           this.$toasted.success('Orçamento enviado com sucesso', {
