@@ -26,7 +26,7 @@
                     <span class="input-group-text">
                       <i class="icon icon-small icon-password"></i>
                     </span>
-                    <input v-model="user.password" type="password" id="password" class="form-control" placeholder="Senha" required>
+                    <input v-model="user.password" type="password" id="password" class="form-control" placeholder="CPF (somente números)" required>
                   </div>
                 </div>
               </div>

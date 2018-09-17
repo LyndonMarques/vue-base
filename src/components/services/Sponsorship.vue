@@ -250,7 +250,7 @@
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" v-model="sponsorship_fields.quoted_items.airfare" v-validate="'quoted_items'" class="form-check-input" id="airfare">
+                  <input type="checkbox" v-model="sponsorship_fields.quoted_items.airfare" class="form-check-input" id="airfare">
                   <label class="form-check-label" for="airfare">
                     Aéreo
                   </label>
