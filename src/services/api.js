@@ -2,7 +2,8 @@ import { create } from 'apisauce';
 import app from '../main';
 
 const api = create({
-  baseURL: process.env.BASE_URL
+  baseURL: "http://127.0.0.1:8090/api"
+  // baseURL: "http://zodiac-api.powertravel.com.br"
 });
 
 api.addRequestTransform(() => {

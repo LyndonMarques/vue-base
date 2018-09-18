@@ -10,7 +10,7 @@
           </h1>
 
           <p class="text-center">
-            Preencha todos os campos abaixo para enviar o orçamento (os campos marcados com * são obrigatórios)
+            Todas as informações abaixo deverão ser preenchidas para maior agilidade do processo de orçamento.
           </p>
         </div>
       </div>
