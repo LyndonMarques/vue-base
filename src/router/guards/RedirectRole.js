@@ -10,6 +10,14 @@ export default (to, from, next) => {
     return next()
   }
 
+  if (!_.isUndefined(to.meta.sponsorship) && to.meta.sponsorship && store.getters['auth/IS_SPONSORSHIP']) {
+    return next()
+  }
+
+  if (!_.isUndefined(to.meta.conference) && to.meta.conference && store.getters['auth/IS_CONFERENCE']) {
+    return next()
+  }
+
   if (store.getters['auth/IS_ADMIN']) {
     return next()
   }

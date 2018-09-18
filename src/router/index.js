@@ -52,6 +52,7 @@ const router = new Router({
           component: ServicesSponsorship,
           meta: {
             trade: true,
+            sponsorship: true,
             bodyClass: 'service'
           }
         },
@@ -60,6 +61,7 @@ const router = new Router({
           component: ServicesConference,
           meta: {
             trade: true,
+            conference: true,
             bodyClass: 'service'
           }
         },

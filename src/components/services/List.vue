@@ -13,7 +13,7 @@
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-12 col-md-4">
+        <div v-if="isSponsorship" class="col-12 col-md-4">
           <div class="card card-service shadow-none">
             <img class="card-img-top" src="../../assets/img/sponsorship.png" alt="Patrocínio">
 
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-4">
+        <div v-if="isConference" class="col-12 col-md-4">
           <div class="card card-service shadow-none">
             <img class="card-img-top" src="../../assets/img/event.png" alt="Congressos/Eventos">
 
@@ -51,18 +51,26 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'ServicesList',
-    components: {},
-    data () {
-      return {
-      }
-    },
-    mounted () {
-    },
-    methods: {
+import { mapGetters } from "vuex"
+
+export default {
+  name: 'ServicesList',
+  components: {},
+  data () {
+    return {
     }
+  },
+  computed: {
+    ...mapGetters({
+      isSponsorship: "auth/IS_SPONSORSHIP",
+      isConference: "auth/IS_CONFERENCE"
+    })
+  },
+  mounted () {
+  },
+  methods: {
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -5,12 +5,12 @@ const INITIAL_STATE = {
   loggedin: false,
   message: '',
   token: false,
-  role: false,
+  roles: false
 };
 
 const getters = {
-  GET_ROLE({ role }) {
-    return role
+  GET_ROLES({ roles }) {
+    return roles
   },
 
   LOGGED_IN({ loggedin }) {
@@ -29,16 +29,24 @@ const getters = {
     return state;
   },
 
-  IS_TRADE({ role }) {
-    return role == 'trade';
+  IS_TRADE({ roles }) {
+    return (roles && !_.isUndefined(roles) && roles.includes('trade'));
   },
 
-  IS_FINANCIAL({ role }) {
-    return role == 'financial';
+  IS_SPONSORSHIP({ roles }) {
+    return (roles && !_.isUndefined(roles) && roles.includes('sponsorship'));
   },
 
-  IS_ADMIN({ role }) {
-    return role == 'admin';
+  IS_CONFERENCE({ roles }) {
+    return (roles && !_.isUndefined(roles) && roles.includes('conference'));
+  },
+
+  IS_FINANCIAL({ roles }) {
+    return (roles && !_.isUndefined(roles) && roles.includes('financial'));
+  },
+
+  IS_ADMIN({ roles }) {
+    return (roles && !_.isUndefined(roles) && roles.includes('admin'));
   }
 };
 
@@ -66,7 +74,7 @@ const actions = {
       } else {
         commit('SET_LOGGED_IN', true);
         commit('user/SET_USER', data.user, { root: true });
-        commit('SET_ROLE', data.role);
+        commit('SET_ROLES', data.roles);
       }
     }
   },
@@ -89,14 +97,14 @@ const actions = {
     // await api.post('api/logout/');
     commit('SET_LOGGED_IN', false);
     commit('user/SET_USER', false, { root: true });
-    commit('SET_ROLE', false);
+    commit('SET_ROLES', false);
     commit('CLEAR_ACCESS_TOKEN', false);
   },
 };
 
 const mutations = {
-  SET_ROLE(state, role) {
-    state.role = role;
+  SET_ROLES(state, roles) {
+    state.roles = roles;
   },
 
   SET_ACCESS_TOKEN(state, token) {
@@ -125,5 +133,5 @@ export default {
   state: INITIAL_STATE,
   getters,
   actions,
-  mutations,
+  mutations
 };

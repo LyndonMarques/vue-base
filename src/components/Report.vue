@@ -3,7 +3,9 @@
     <div class="container py-5">
       <div class="row mb-4">
         <div class="col-12">
-          <h1>Relatórios</h1>
+          <h1>
+            <span>Relatórios</span>
+          </h1>
           <p>
             Utilize o formulário abaixo para entrar em contato com nossa equipe.
           </p>
