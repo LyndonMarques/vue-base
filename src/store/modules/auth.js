@@ -53,7 +53,7 @@ const getters = {
 const actions = {
   async LOGIN({ commit, dispatch }, credentials) {
     commit('SET_MESSAGE', '');
-    const response = await api.post('login/', credentials);
+    const response = await api.post('api/login/', credentials);
     const { data, ok } = response;
 
     if (ok) {
@@ -66,7 +66,7 @@ const actions = {
   },
 
   async AUTHENTICATE({ commit, dispatch, state }) {
-    const response = await api.get('user/');
+    const response = await api.get('api/user/');
     const { data, ok } = response;
     if (ok) {
       if (data.status == "Token is Expired") {

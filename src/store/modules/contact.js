@@ -20,25 +20,25 @@ const actions = {
     commit('CONTACT_RECEIVE', contact)
   },
   async FETCH_CONTACT({ commit }, id) {
-    const response = await api.get(`contacts/${id}`);
+    const response = await api.get(`api/contacts/${id}`);
     commit('CONTACT_RECEIVE', response.data);
   },
   async FETCH_ALL_CONTACTS({ commit }) {
-    const response = await api.get(`contacts`);
+    const response = await api.get(`api/contacts`);
     commit('ALL_RECEIVE', response.data);
   },
   async CREATE_CONTACT({ commit }, contact) {
-    const { data, ok } = await api.post('contacts', contact);
+    const { data, ok } = await api.post('api/contacts', contact);
     commit('CONTACT_RECEIVE', data);
     return { data, ok }
   },
   async UPDATE_CONTACT({ commit }, { id, contact }) {
-    const { data, ok } = await api.put(`contacts/${id}`, contact);
+    const { data, ok } = await api.put(`api/contacts/${id}`, contact);
     commit('CONTACT_RECEIVE', data)
     return { data, ok }
   },
   async DELETE_CONTACT({ commit }, id) {
-    const response = await api.delete(`contacts/${id}`);
+    const response = await api.delete(`api/contacts/${id}`);
     commit('CLEAR_CONTACT')
     return { response }
   }
