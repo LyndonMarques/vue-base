@@ -136,7 +136,7 @@
               <div class="col-12 col-md-6">
                 <div class="form-group">
                   <label for="guest[birthdate]">Data de Nascimento</label>
-                  <input type="text" class="form-control" name="guest[birthdate]" v-model="sponsorship_fields.guest.birthdate" v-mask="'##/###/####'" placeholder="Data de Nascimento do Convidado">
+                  <input type="text" class="form-control" name="guest[birthdate]" v-model="sponsorship_fields.guest.birthdate" v-mask="'##/##/####'" placeholder="Data de Nascimento do Convidado">
                 </div>
               </div>
 
@@ -329,6 +329,7 @@
       }),
 
       submitForm() {
+
         this.$validator.validateAll().then((result) => {
           if (result == true) {
             this.sendQuotation()
