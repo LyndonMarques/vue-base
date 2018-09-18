@@ -38,6 +38,9 @@
               </div>
             </form>
           </div>
+          <div class="text-center mt-3">
+            <p>(11) 3257-9440</p>
+          </div>
         </div>
       </div>
     </div>

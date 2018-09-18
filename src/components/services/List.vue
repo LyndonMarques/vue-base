@@ -23,7 +23,11 @@
               </div>
 
               <h5 class="card-title">Patrocínio</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Neste campo você irá acessar o pedido de Patrocínio.
+
+                Após o envio do formulário nossa equipe responderá em
+
+                Até 5 dias úteis.</p>
 
               <router-link class="btn btn-white" to="/servicos/patrocinio">Solicitar orçamento</router-link>
             </div>
@@ -40,7 +44,11 @@
               </div>
 
               <h5 class="card-title">Congressos/Eventos</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Neste campo você irá acessar o pedido de Congressos/Eventos.
+
+                Após o envio do formulário nossa equipe responderá com a maior brevidade
+
+                Possível , dependendo da complexibilidade da solicitação.</p>
 
               <router-link class="btn btn-white" to="/servicos/conferencia">Solicitar orçamento</router-link>
             </div>
