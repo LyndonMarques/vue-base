@@ -236,21 +236,21 @@
                 <p>Selecione os ítens a serem orçados</p>
 
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" v-model="sponsorship_fields.quoted_items.registration" class="form-check-input" id="registration">
+                  <input type="checkbox" v-model="sponsorship_fields.quoted_items" v-validate="'required'" value="registration" name="quoted_items" class="form-check-input" id="registration">
                   <label class="form-check-label" for="registration">
                     Inscrição
                   </label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" v-model="sponsorship_fields.quoted_items.accommodation" class="form-check-input" id="accommodation">
+                  <input type="checkbox" v-model="sponsorship_fields.quoted_items" v-validate="'required'" value="accommodation" name="quoted_items" class="form-check-input" id="accommodation">
                   <label class="form-check-label" for="accommodation">
                     Hospedagem
                   </label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" v-model="sponsorship_fields.quoted_items.airfare" class="form-check-input" id="airfare">
+                  <input type="checkbox" v-model="sponsorship_fields.quoted_items" v-validate="'required'" value="airfare" name="quoted_items" class="form-check-input" id="airfare">
                   <label class="form-check-label" for="airfare">
                     Aéreo
                   </label>
@@ -314,11 +314,7 @@
             state: '',
             zipcode: ''
           },
-          quoted_items: {
-            registration: false,
-            accommodation: false,
-            airfare: false
-          }
+          quoted_items: []
         }
       }
     },
