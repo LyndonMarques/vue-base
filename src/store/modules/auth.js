@@ -45,7 +45,7 @@ const getters = {
 const actions = {
   async LOGIN({ commit, dispatch }, credentials) {
     commit('SET_MESSAGE', '');
-    const response = await api.post('api/login/', credentials);
+    const response = await api.post('login/', credentials);
     const { data, ok } = response;
 
     if (ok) {
@@ -58,7 +58,7 @@ const actions = {
   },
 
   async AUTHENTICATE({ commit, dispatch, state }) {
-    const response = await api.get('api/user/');
+    const response = await api.get('user/');
     const { data, ok } = response;
     if (ok) {
       if (data.status == "Token is Expired") {
@@ -72,7 +72,7 @@ const actions = {
   },
 
   async REFRESH_TOKEN({ commit }, token) {
-    const response = await api.post('api/refresh/', { token });
+    const response = await api.post('refresh/', { token });
     const { data, ok } = response;
 
     if (ok) {
@@ -83,7 +83,7 @@ const actions = {
       commit('CLEAR_ACCESS_TOKEN', false);
     }
   },
-  
+
   // FIXME: Redirect to login page after
   async LOGOUT({ commit }) {
     // await api.post('api/logout/');

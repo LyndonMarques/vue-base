@@ -20,25 +20,25 @@ const actions = {
     commit('QUOTATION_RECEIVE', quotation)
   },
   async FETCH_QUOTATION({ commit }, id) {
-    const response = await api.get(`api/quotations/${id}`);
+    const response = await api.get(`quotations/${id}`);
     commit('QUOTATION_RECEIVE', response.data);
   },
   async FETCH_ALL_QUOTATIONS({ commit }) {
-    const response = await api.get(`api/quotations`);
+    const response = await api.get(`quotations`);
     commit('ALL_RECEIVE', response.data);
   },
   async CREATE_QUOTATION({ commit }, quotation) {
-    const { data, ok } = await api.post('api/quotations', quotation);
+    const { data, ok } = await api.post('quotations', quotation);
     commit('QUOTATION_RECEIVE', data);
     return { data, ok }
   },
   async UPDATE_QUOTATION({ commit }, { id, quotation }) {
-    const { data, ok } = await api.put(`api/quotations/${id}`, quotation);
+    const { data, ok } = await api.put(`quotations/${id}`, quotation);
     commit('QUOTATION_RECEIVE', data)
     return { data, ok }
   },
   async DELETE_QUOTATION({ commit }, id) {
-    const response = await api.delete(`api/quotations/${id}`);
+    const response = await api.delete(`quotations/${id}`);
     commit('CLEAR_QUOTATION')
     return { response }
   }
