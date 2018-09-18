@@ -16,18 +16,6 @@
             <div class="row mb-3">
               <div class="col-12 col-md-6">
                 <div class="form-group">
-                  <label for="contact[name]">Categoria</label>
-                  <select v-model="contact.category" class="form-control" placeholder="Selecione uma categoria">
-                    <option value="">Selecione</option>
-                    <option v-for="category in this.categories" :value="category.id">{{ category.name }}</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="w-100"></div>
-
-              <div class="col-12 col-md-6">
-                <div class="form-group">
                   <label for="contact[subject]">Assunto</label>
                   <input v-model="contact.subject" type="text" class="form-control" name="contact[subject]" placeholder="Assunto da mensagem">
                 </div>
@@ -65,7 +53,6 @@
     data () {
       return {
         contact: {
-          category: '',
           subject: '',
           message: ''
         }
@@ -79,8 +66,7 @@
 
     methods: {
       ...mapActions({
-        createContact: "contact/CREATE_CONTACT",
-        fetchCategories: "category/FETCH_ALL_CATEGORIES"
+        createContact: "contact/CREATE_CONTACT"
       }),
 
       async sendContact() {
@@ -102,8 +88,7 @@
 
     computed: {
       ...mapGetters({
-        currentUser: "user/GET_USER",
-        categories: "category/GET_ALL"
+        currentUser: "user/GET_USER"
       })
     }
   }
