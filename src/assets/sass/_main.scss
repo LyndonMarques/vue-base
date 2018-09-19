@@ -391,6 +391,11 @@ input[type="radio"] {
   padding: 30px 0;
 }
 
+.navbar-toggler {
+  color: $red1;
+  font-size: 32px;
+}
+
 .nav-link {
   @extend %default-text;
   transition: all .3s ease-in;

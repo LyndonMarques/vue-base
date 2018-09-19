@@ -3,26 +3,26 @@
     <div class="row">
       <div class="col-12">
         <nav class="navbar navbar-expand-md sticky-top">
-          <a class="navbar-brand" href="/home/">
+          <router-link class="navbar-brand" to="/home/">
             <img src="../../assets/img/logo-small.png" alt="Zodiac">
-          </a>
+          </router-link>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fa fa-bars"></i>
           </button>
 
           <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse">
-            <ul class="navbar-nav text-center">
-              <li v-if="roles && (roles.includes('trade') || roles.includes('admin'))" class="nav-item px-3">
+            <ul class="navbar-nav text-center mt-3 mb-sm-0">
+              <li v-if="roles && (roles.includes('trade') || roles.includes('admin'))" class="nav-item px-3 mb-2 mb-md-0">
                 <router-link class="nav-link" to="/servicos">Serviços</router-link>
               </li>
               <li v-if="roles && (roles.includes('financial') || roles.includes('admin'))" class="nav-item px-3">
                 <router-link class="nav-link" to="/relatorios">Relatorios</router-link>
               </li>
-              <li class="nav-item px-3">
+              <li class="nav-item px-3 mb-2 mb-md-0">
                 <router-link class="nav-link" to="/contato">Contato</router-link>
               </li>
-              <li class="nav-item px-3">
+              <li class="nav-item px-3 mb-2 mb-md-0">
                 <a href="#" class="nav-link" @click="logoutUser">
                   <i class="icon icon-logout"></i>
                   Sair

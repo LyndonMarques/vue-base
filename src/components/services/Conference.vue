@@ -396,22 +396,22 @@
                     <p class="mb-1">Outros Equipamentos</p>
 
                     <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="conference_fields.equipament.projector" id="projector">
+                      <label class="form-check-label" for="projector">
+                        Projetor
+                      </label>
+                    </div>
+
+                    <div class="form-check">
                       <input class="form-check-input" type="checkbox" v-model="conference_fields.equipament.sound" id="sound">
                       <label class="form-check-label" for="sound">
-                        Projetor
+                        Sonorização Completa
                       </label>
                     </div>
 
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" v-model="conference_fields.equipament.technician" id="technician">
                       <label class="form-check-label" for="technician">
-                        Sonorização Completa
-                      </label>
-                    </div>
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" v-model="conference_fields.equipament.slider_control" id="slider_control">
-                      <label class="form-check-label" for="slider_control">
                         Técnico
                       </label>
                     </div>

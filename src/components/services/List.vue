@@ -2,18 +2,15 @@
   <div class="wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 pb-5">
           <h1>
-            <span>Serviços</span>
+            <span></span>
           </h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
         </div>
       </div>
 
       <div class="row justify-content-center">
-        <div v-if="isSponsorship" class="col-12 col-md-4">
+        <div v-if="isSponsorship" class="col-12 col-sm-6 col-lg-4">
           <div class="card card-service shadow-none">
             <img class="card-img-top" src="../../assets/img/sponsorship.png" alt="Patrocínio">
 
@@ -34,7 +31,7 @@
           </div>
         </div>
 
-        <div v-if="isConference" class="col-12 col-md-4">
+        <div v-if="isConference" class="col-12 col-sm-6 col-lg-4">
           <div class="card card-service shadow-none">
             <img class="card-img-top" src="../../assets/img/event.png" alt="Congressos/Eventos">
 

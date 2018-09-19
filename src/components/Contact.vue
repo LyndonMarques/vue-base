@@ -61,7 +61,6 @@
 
     async mounted () {
       this.contact.id = this.currentUser.id
-      await this.fetchCategories()
     },
 
     methods: {
