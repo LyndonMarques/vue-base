@@ -3,7 +3,6 @@ import * as _ from 'lodash';
 
 const INITIAL_STATE = {
   loggedin: false,
-  message: '',
   token: false,
   roles: false
 };
@@ -21,39 +20,14 @@ const getters = {
     return token;
   },
 
-  GET_MESSAGE({ message }) {
-    return message;
-  },
-
   AUTH(state) {
     return state;
   },
-
-  IS_TRADE({ roles }) {
-    return (roles && !_.isUndefined(roles) && roles.includes('trade'));
-  },
-
-  IS_SPONSORSHIP({ roles }) {
-    return (roles && !_.isUndefined(roles) && roles.includes('sponsorship'));
-  },
-
-  IS_CONFERENCE({ roles }) {
-    return (roles && !_.isUndefined(roles) && roles.includes('conference'));
-  },
-
-  IS_FINANCIAL({ roles }) {
-    return (roles && !_.isUndefined(roles) && roles.includes('financial'));
-  },
-
-  IS_ADMIN({ roles }) {
-    return (roles && !_.isUndefined(roles) && roles.includes('admin'));
-  }
 };
 
 const actions = {
   async LOGIN({ commit, dispatch }, credentials) {
-    commit('SET_MESSAGE', '');
-    const response = await api.post('api/login/', credentials);
+    const response = await api.post('api/auth/', credentials);
     const { data, ok } = response;
 
     if (ok) {
@@ -68,6 +42,7 @@ const actions = {
   async AUTHENTICATE({ commit, dispatch, state }) {
     const response = await api.get('api/user/');
     const { data, ok } = response;
+console.log(data)
     if (ok) {
       if (data.status == "Token is Expired") {
         dispatch('LOGOUT');
@@ -94,7 +69,7 @@ const actions = {
 
   // FIXME: Redirect to login page after
   async LOGOUT({ commit }) {
-    // await api.post('api/logout/');
+     await api.post('api/logout/');
     commit('SET_LOGGED_IN', false);
     commit('user/SET_USER', false, { root: true });
     commit('SET_ROLES', false);
@@ -121,10 +96,6 @@ const mutations = {
 
   SET_LOGGED_IN(state, status) {
     state.loggedin = status;
-  },
-
-  SET_MESSAGE(state, message) {
-    state.message = message;
   },
 };
 

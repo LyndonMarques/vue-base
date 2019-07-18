@@ -10,9 +10,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
-            <p class="mb-0">
-              @2018 <strong>Grupo PWR</strong> Todos os direitos reservados.
-            </p>
+
           </div>
         </div>
       </div>
@@ -22,7 +20,7 @@
 
 <script>
   import { mapGetters } from "vuex"
-  import Navbar from "@/components/partials/Navbar"
+  import Navbar from "@/components/Navbar"
 
   export default {
     name: 'App',

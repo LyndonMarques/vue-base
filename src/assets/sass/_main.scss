@@ -270,7 +270,7 @@ input[type="radio"] {
   .input-group-text {
     border: none;
     border-radius: 10px 0 0 10px;
-    background: $red1;
+    background: $yellow1;
   }
   .form-control {
     border-radius: 0 10px 10px 0;
@@ -291,6 +291,7 @@ input[type="radio"] {
 
 .icon {
   display: inline-block;
+  color: #000000 !important;
 
   &.icon-user {
     width: 21px;
@@ -329,7 +330,6 @@ input[type="radio"] {
 
 .card-login {
   padding: 28px 20px 0px;
-  border: none;
   border-radius: 10px;
   form {
     margin-top: 45px;
@@ -339,6 +339,10 @@ input[type="radio"] {
   }
   .card-body {
     padding: 0px;
+
+    button {
+      color: #ffffff;
+    }
   }
   p{
     color: #7d7272;
@@ -442,10 +446,8 @@ input[type="radio"] {
 // ===== //
 
 #app {
-  background: url('#{$img-path}bg.png') no-repeat center center;
   background-size: cover;
   .login & {
-    background: url('#{$img-path}login.png') no-repeat center center;
     background-size: cover;
   }
   .service & {

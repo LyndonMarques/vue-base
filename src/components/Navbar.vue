@@ -4,7 +4,7 @@
       <div class="col-12">
         <nav class="navbar navbar-expand-md sticky-top">
           <router-link class="navbar-brand" to="/home/">
-            <img src="../../assets/img/logo-small.png" alt="Zodiac">
+            <img src="../assets/img/logo-small.png" alt="Zodiac">
           </router-link>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false">
@@ -37,7 +37,6 @@
 </template>
 <script>
   import { mapGetters, mapActions } from "vuex"
-  import { routes } from "@/router"
 
   export default {
     name: 'Navbar',
